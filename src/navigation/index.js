@@ -29,7 +29,7 @@ const AppStack = createStackNavigator(
   },
 );
 
-const AuthStack = createStackNavigator(
+const AuthStack = createSwitchNavigator(
   {
     SignIn,
     SignUp,
