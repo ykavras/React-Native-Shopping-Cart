@@ -4,21 +4,16 @@ import {Formik} from 'formik';
 import validations from './validations';
 import {SignIn} from '../../../store/Actions/Auth/SignIn';
 import {connect} from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
+import Auth from '../../../helper/AuthControl';
 
 class SignInForm extends Component {
-  renderItem = async token => {
-    if (token !== null) {
-      await AsyncStorage.setItem('token', token);
-      this.props.navigation.navigate('Main');
-    }
-  };
-
   _handleSubmit = async (values, bag) => {
     try {
       await this.props.SignIn(values, bag);
       const {token} = await this.props.SignInReducer;
-      await this.renderItem(token);
+      if (token !== null) {
+        await Auth.saveToken(token);
+      }
     } catch (error) {
       console.log(error);
     }
