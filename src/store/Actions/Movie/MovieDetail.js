@@ -12,7 +12,6 @@ export const MovieDetail = id => {
     try {
       const response = await api.get('api/movie/' + id);
       const payload = await response.data;
-      console.log('PAYLOAD => ', payload);
       dispatch(fetchingSuccess(MOVIE_DETAIL_FULFILLED, payload));
     } catch (error) {
       dispatch(fetchingFailure(MOVIE_DETAIL_REJECTED, error.response.data));

@@ -7,7 +7,7 @@ export const SignIn = (values, bag) => {
     dispatch(fetchingRequest(SIGN_IN_PENDING));
     try {
       const response = await api.post('authenticate', values);
-      const payload = await response.data.token;
+      const payload = await response.data;
       bag.setSubmitting(false);
       dispatch(fetchingSuccess(SIGN_IN_FULFILLED, payload));
     } catch (error) {

@@ -10,8 +10,11 @@ class SignInForm extends Component {
   _handleSubmit = async (values, bag) => {
     try {
       await this.props.SignIn(values, bag);
-      const {token} = await this.props.SignInReducer;
-      token !== null && (await AuthControl.saveToken(token));
+      const {token, user} = await this.props.SignInReducer;
+      if (token !== null && user !== null) {
+        await AuthControl.saveToken('token', token);
+        await AuthControl.saveToken('user', JSON.stringify(user));
+      }
     } catch (error) {
       console.log(error);
     }

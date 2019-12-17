@@ -10,13 +10,18 @@ import {
   Header,
 } from 'native-base';
 import AuthControl from '../../helper/AuthControl';
-export default class ToastDuration extends Component {
+import {connect} from 'react-redux';
+
+class Profile extends Component {
   render() {
+    const user = JSON.parse(this.props.SignInReducer.user);
     return (
       <Container>
         <Header>
           <Body>
-            <Title>Profile</Title>
+            <Title>
+              {user.name} {user.surname}
+            </Title>
           </Body>
         </Header>
         <Content padder>
@@ -25,7 +30,7 @@ export default class ToastDuration extends Component {
             danger
             onPress={() =>
               Toast.show({
-                text: 'See you :)',
+                text: `See you ${user.name} :)`,
                 textStyle: {textAlign: 'center'},
                 onClose: () => AuthControl.removeToken(),
               })
@@ -37,3 +42,16 @@ export default class ToastDuration extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    SignInReducer: state.SignInReducer,
+  };
+};
+
+const mapStateToDispatch = {};
+
+export default connect(
+  mapStateToProps,
+  mapStateToDispatch,
+)(Profile);
