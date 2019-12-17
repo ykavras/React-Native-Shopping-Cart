@@ -1,34 +1,39 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import styles from './styles';
-import {connect} from 'react-redux';
-import goCounter from '../../store/Actions/Auth/SignIn';
-
-class Profile extends Component {
-  componentDidMount() {
-    console.log('Profile');
-  }
-
+import {
+  Container,
+  Content,
+  Text,
+  Button,
+  Toast,
+  Body,
+  Title,
+  Header,
+} from 'native-base';
+import AuthControl from '../../helper/AuthControl';
+export default class ToastDuration extends Component {
   render() {
     return (
-      <View style={styles.wrapper}>
-        <Text>Profile</Text>
-      </View>
+      <Container>
+        <Header>
+          <Body>
+            <Title>Profile</Title>
+          </Body>
+        </Header>
+        <Content padder>
+          <Button
+            block
+            danger
+            onPress={() =>
+              Toast.show({
+                text: 'See you :)',
+                textStyle: {textAlign: 'center'},
+                onClose: () => AuthControl.removeToken(),
+              })
+            }>
+            <Text>Logout</Text>
+          </Button>
+        </Content>
+      </Container>
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    counter: state.CounterReducer,
-  };
-};
-
-const mapStateToDispatch = {
-  goCounter,
-};
-
-export default connect(
-  mapStateToProps,
-  mapStateToDispatch,
-)(Profile);

@@ -10,11 +10,6 @@ class Main extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <Text
-          style={styles.textBtn}
-          onPress={() => this.props.navigation.navigate('MainDetail')}>
-          Go to Detail
-        </Text>
         <Text>Main</Text>
       </View>
     );

@@ -4,16 +4,14 @@ import {Formik} from 'formik';
 import validations from './validations';
 import {SignIn} from '../../../store/Actions/Auth/SignIn';
 import {connect} from 'react-redux';
-import Auth from '../../../helper/AuthControl';
+import AuthControl from '../../../helper/AuthControl';
 
 class SignInForm extends Component {
   _handleSubmit = async (values, bag) => {
     try {
       await this.props.SignIn(values, bag);
       const {token} = await this.props.SignInReducer;
-      if (token !== null) {
-        await Auth.saveToken(token);
-      }
+      token !== null && (await AuthControl.saveToken(token));
     } catch (error) {
       console.log(error);
     }

@@ -5,7 +5,7 @@ import {
   Main,
   MainDetail,
   Profile,
-  Search,
+  Products,
   AuthLoading,
   SignIn,
   SignUp,
@@ -13,14 +13,14 @@ import {
 
 const TabBar = createBottomTabNavigator({
   Main,
-  Search,
+  Products,
   Profile,
 });
 
 const AppStack = createStackNavigator(
   {
     Tab: TabBar,
-    MainDetail,
+    //MainDetail,
   },
   {
     defaultNavigationOptions: {

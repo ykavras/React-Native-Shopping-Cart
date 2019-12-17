@@ -5,4 +5,4 @@ export {default as SignUp} from './Auth/SignUp';
 export {default as Main} from './Main';
 export {default as MainDetail} from './Main/Detail';
 export {default as Profile} from './Profile';
-export {default as Search} from './Search';
+export {default as Products} from './Products';
