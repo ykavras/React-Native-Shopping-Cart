@@ -1,5 +1,7 @@
 import {combineReducers} from 'redux';
-import Counter from './Counter';
+import SignIn from './Auth/SignIn';
+import SignUp from './Auth/SignUp';
 export default combineReducers({
-  CounterReducer: Counter,
+  SignInReducer: SignIn,
+  SignUpReducer: SignUp,
 });

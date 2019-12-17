@@ -8,7 +8,7 @@
 
 import React from 'react';
 import AppNavigator from '../navigation';
-import NavigationService from '../navigation/NavigationService';
+import NavigationService from '../helper/NavigationService';
 import {Provider} from 'react-redux';
 import store from '../store';
 

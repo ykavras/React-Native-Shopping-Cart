@@ -1,0 +1,15 @@
+export default {
+  blue: '#1C7EDD',
+  blueOff: '#00488E',
+  colorGray: '#C1C1C1',
+  colorGreen: '#2ECC71',
+  colorRed: '#C0392B',
+  colorWhite: '#FFFFFF',
+  colorBlack: '#333333',
+  fontLight: 'Poppins-Light',
+  fontRegular: 'Poppins-Regular',
+  fontMedium: 'Poppins-Medium',
+  fontSemiBold: 'Poppins-SemiBold',
+  fontBold: 'Poppins-Bold',
+  fontBlack: 'Poppins-Black',
+};

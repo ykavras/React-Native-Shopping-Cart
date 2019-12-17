@@ -1,5 +1,8 @@
-export {default as Home} from './Home';
-export {default as HomeDetail} from './Home/Detail';
+export {default as AuthLoading} from './Auth/AuthLoading';
+export {default as SignIn} from './Auth/SignIn';
+export {default as SignUp} from './Auth/SignUp';
+
+export {default as Main} from './Main';
+export {default as MainDetail} from './Main/Detail';
 export {default as Profile} from './Profile';
 export {default as Search} from './Search';
-export {default as Login} from './Login';
