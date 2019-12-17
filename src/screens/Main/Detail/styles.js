@@ -2,30 +2,34 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    justifyContent: 'flex-end',
+  },
+  backBtn: {
+    backgroundColor: 'rgba(36,46,36,0.8)',
+    position: 'absolute',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    left: 14,
+    top: 20,
+    zIndex: 1,
+    color: '#FFFFFF',
+    borderRadius: 20,
+    overflow: 'hidden',
+    fontWeight: '600',
+    fontSize: 14,
+  },
+  nameWrapper: {
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingVertical: 30,
+    paddingHorizontal: 10,
+    backgroundColor: 'rgba(36,46,36,0.8)',
     justifyContent: 'center',
-    alignItems: 'center',
   },
-  counter: {
-    fontSize: 30,
-    marginVertical: 30,
-  },
-  buttons: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-around',
-  },
-  button: {
-    borderRadius: 5,
-  },
-  buttonUp: {
-    backgroundColor: '#2233e2',
-  },
-  buttonDown: {
-    backgroundColor: '#e2545e',
-  },
-  buttonTitle: {
-    padding: 20,
+  name: {
     fontSize: 20,
+    fontWeight: '600',
+    textAlign: 'center',
     color: '#FFFFFF',
   },
 });

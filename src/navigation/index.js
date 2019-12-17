@@ -20,7 +20,7 @@ const TabBar = createBottomTabNavigator({
 const AppStack = createStackNavigator(
   {
     Tab: TabBar,
-    //MainDetail,
+    MainDetail,
   },
   {
     defaultNavigationOptions: {
