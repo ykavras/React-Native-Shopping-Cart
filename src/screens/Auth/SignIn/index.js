@@ -11,7 +11,7 @@ class SignIp extends Component {
             <Title>Sign In</Title>
           </Body>
         </Header>
-        <SignInForm />
+        <SignInForm navigation={this.props.navigation}/>
       </>
     );
   }

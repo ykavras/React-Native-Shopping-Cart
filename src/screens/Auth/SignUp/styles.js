@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
     color: theme.colorRed,
     paddingTop: 2,
   },
+  successMessage: {
+    fontSize: 14,
+    marginVertical: 10,
+    textAlign: 'center',
+  },
 });
 
 export default styles;

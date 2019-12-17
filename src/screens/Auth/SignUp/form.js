@@ -9,19 +9,32 @@ import {connect} from 'react-redux';
 import styles from './styles';
 
 class SignUpForm extends PureComponent {
+  state = {
+    message: null,
+  };
   closeKeyboard = () => {
     Keyboard.dismiss();
   };
   _handleSubmit = async (values, bag) => {
+    this.closeKeyboard();
     try {
       await this.props.SignUp(values, bag);
-      const {data} = await this.props.SignUpReducer;
-      console.log(data);
+      this.successRedirecting();
     } catch (error) {
       console.log(error);
     }
   };
+  successRedirecting = () => {
+    const {data} = this.props.SignUpReducer;
+    if (data) {
+      this.setState({message: data.message});
+      setTimeout(() => {
+        NavigationService.navigate('SignIn');
+      }, 2000);
+    }
+  };
   render() {
+    const {message} = this.state;
     return (
       <Formik
         initialValues={{
@@ -48,6 +61,7 @@ class SignUpForm extends PureComponent {
         }) => (
           <Content padder>
             <Item error={errors.email && touched.email}>
+              <Icon name="envelope" type="FontAwesome" />
               <Input
                 returnKeyType={'next'}
                 onSubmitEditing={() => this.nameRef._root.focus()}
@@ -66,6 +80,7 @@ class SignUpForm extends PureComponent {
             )}
 
             <Item error={errors.name && touched.name}>
+              <Icon name="user" type="FontAwesome" />
               <Input
                 returnKeyType={'next'}
                 ref={ref => (this.nameRef = ref)}
@@ -84,6 +99,7 @@ class SignUpForm extends PureComponent {
             )}
 
             <Item error={errors.surname && touched.surname}>
+              <Icon name="user" type="FontAwesome" />
               <Input
                 returnKeyType={'next'}
                 ref={ref => (this.surnameRef = ref)}
@@ -104,6 +120,7 @@ class SignUpForm extends PureComponent {
             )}
 
             <Item error={errors.phone && touched.phone}>
+              <Icon name="phone" type="FontAwesome" />
               <Input
                 returnKeyType={'done'}
                 ref={ref => (this.phoneRef = ref)}
@@ -123,6 +140,7 @@ class SignUpForm extends PureComponent {
             )}
 
             <Item error={errors.address && touched.address}>
+              <Icon name="map-marker" type="FontAwesome" />
               <Input
                 returnKeyType={'next'}
                 ref={ref => (this.addressRef = ref)}
@@ -143,6 +161,7 @@ class SignUpForm extends PureComponent {
             )}
 
             <Item error={errors.password && touched.password}>
+              <Icon name="lock" type="FontAwesome" />
               <Input
                 returnKeyType={'next'}
                 ref={ref => (this.passwordRef = ref)}
@@ -150,9 +169,8 @@ class SignUpForm extends PureComponent {
                 onChangeText={handleChange('password')}
                 value={values.password}
                 placeholder="Password"
-                onBlur={() => setFieldTouched('password')}
-                secureTextEntry={true}
                 autoCorrect={false}
+                onBlur={() => setFieldTouched('password')}
               />
 
               {errors.password && touched.password && (
@@ -165,12 +183,12 @@ class SignUpForm extends PureComponent {
             )}
 
             <Item error={errors.confirmPassword && touched.confirmPassword}>
+              <Icon name="lock" type="FontAwesome" />
               <Input
                 ref={ref => (this.passwordConfirmRef = ref)}
                 onChangeText={handleChange('confirmPassword')}
                 value={values.confirmPassword}
                 placeholder="Password Confirmation"
-                secureTextEntry={true}
                 autoCorrect={false}
                 onSubmitEditing={this.closeKeyboard}
                 onBlur={() => setFieldTouched('confirmPassword')}
@@ -194,6 +212,11 @@ class SignUpForm extends PureComponent {
               {isSubmitting && <Spinner size={'small'} color={'white'} />}
               <Text>SignUp</Text>
             </Button>
+            {message && (
+              <Text style={styles.successMessage}>
+                {`${message}\n\nRedirecting...`}
+              </Text>
+            )}
             <Button
               block
               rounded

@@ -5,7 +5,6 @@ import validations from './validations';
 import {SignIn} from '../../../store/Actions/Auth/SignIn';
 import {connect} from 'react-redux';
 import AuthControl from '../../../helper/AuthControl';
-import NavigationService from '../../../helper/NavigationService';
 
 class SignInForm extends Component {
   _handleSubmit = async (values, bag) => {
@@ -70,7 +69,6 @@ class SignInForm extends Component {
                 <Text style={{color: 'red'}}>{errors.password}</Text>
               )}
             </Item>
-
             <Button
               block
               success
@@ -83,7 +81,7 @@ class SignInForm extends Component {
             <Button
               block
               rounded
-              onPress={() => NavigationService.navigate('SignUp')}>
+              onPress={() => this.props.navigation.navigate('SignUp')}>
               <Text>SignUp</Text>
             </Button>
           </Content>

@@ -15,12 +15,11 @@ const validations = Yup.object().shape({
   phone: Yup.number().required('Phone Required'),
   address: Yup.string().required('Address Required'),
   password: Yup.string()
-    .label('Password')
-    .required()
-    .min(4, 'Password must have more than 4 characters '),
+    .required('Password is required')
+    .min(4),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Confirm Password must matched Password')
-    .required('Confirm Password is required'),
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Password confirm is required'),
 });
 
 module.exports = validations;
