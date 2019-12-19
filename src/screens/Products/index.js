@@ -32,7 +32,6 @@ class Products extends Component {
   render() {
     const {products} = this.state;
     const {data} = this.props.ShoppingCartReducer;
-    console.log(data);
     return (
       <Container>
         <Header>
