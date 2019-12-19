@@ -1,9 +1,12 @@
 import {StyleSheet} from 'react-native';
+import theme from '../../helper/theme';
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: 'space-between',
     flexDirection: 'row',
+    backgroundColor: theme.colorWhite,
+    padding: 10,
   },
   image: {
     width: 60,

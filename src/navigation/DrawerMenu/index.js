@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, FlatList} from 'react-native';
+import {ImageBackground, FlatList, View} from 'react-native';
 import styles from './styles';
 import {Button, Text} from 'native-base';
 import {
@@ -20,7 +20,9 @@ class DrawerMenu extends Component {
   render() {
     const {data} = this.props.ShoppingCartReducer;
     return (
-      <View style={styles.wrapper}>
+      <ImageBackground
+        style={styles.wrapper}
+        source={{uri: 'https://cutt.ly/drq2O4V'}}>
         {data.length > 0 ? (
           <FlatList
             contentContainerStyle={styles.products}
@@ -47,7 +49,7 @@ class DrawerMenu extends Component {
             <Text>Your Empty Cart :(</Text>
           </Button>
         )}
-      </View>
+      </ImageBackground>
     );
   }
 }

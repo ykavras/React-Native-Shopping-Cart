@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   products: {
-    paddingHorizontal: 10,
     paddingVertical: 40,
   },
   separator: {
