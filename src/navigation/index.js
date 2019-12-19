@@ -1,6 +1,8 @@
+import React from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import {
   Main,
   MainDetail,
@@ -10,16 +12,24 @@ import {
   SignIn,
   SignUp,
 } from '../screens';
+import DrawerMenu from './DrawerMenu';
 
-const TabBar = createBottomTabNavigator({
+const TabBarTabNavigator = createBottomTabNavigator({
   Main,
   Products,
   Profile,
 });
 
+const DrawerNavigator = createDrawerNavigator(
+  {
+    TabBarTabNavigator,
+  },
+  {contentComponent: () => <DrawerMenu />},
+);
+
 const AppStack = createStackNavigator(
   {
-    Tab: TabBar,
+    App: DrawerNavigator,
     MainDetail,
   },
   {
@@ -44,8 +54,8 @@ const AuthStack = createSwitchNavigator(
 const Root = createSwitchNavigator(
   {
     AuthLoading: AuthLoading,
-    App: AppStack,
     Auth: AuthStack,
+    App: AppStack,
   },
   {
     initialRouteName: 'AuthLoading',

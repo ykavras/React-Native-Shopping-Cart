@@ -37,19 +37,22 @@ class Products extends Component {
         <Header>
           <Left />
           <Body>
-            <Title>Products {data && data.length}</Title>
+            <Title>Products</Title>
           </Body>
           <Right>
-            <Button transparent onPress={this.props.ClearCart}>
-              <Text>Clear</Text>
+            <Button
+              style={{
+                width: 40,
+                height: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              rounded
+              onPress={() => this.props.navigation.toggleDrawer()}>
+              <Text style={{position: 'absolute'}}>{data && data.length}</Text>
             </Button>
           </Right>
         </Header>
-        {data &&
-          data.length > 0 &&
-          data.map(item => (
-            <Text key={`item_${item.id}`}>{`${item.name} - ${item.qty}`}</Text>
-          ))}
         <FlatList
           contentContainerStyle={styles.products}
           data={products}
