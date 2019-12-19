@@ -5,28 +5,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  counter: {
-    fontSize: 30,
-    marginVertical: 30,
+  products: {
+    paddingHorizontal: 10,
+    paddingVertical: 20,
   },
-  buttons: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-around',
-  },
-  button: {
-    borderRadius: 5,
-  },
-  buttonUp: {
-    backgroundColor: '#2233e2',
-  },
-  buttonDown: {
-    backgroundColor: '#e2545e',
-  },
-  buttonTitle: {
-    padding: 20,
-    fontSize: 20,
-    color: '#FFFFFF',
+  separator: {
+    height: 20,
   },
 });
 
