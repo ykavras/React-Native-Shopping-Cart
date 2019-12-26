@@ -4,7 +4,6 @@ import {
   DECREASE_QTY,
   CLEAR_CART,
 } from '../../Actions/ShoppingCart/types';
-import {Toast} from 'native-base';
 
 const INITIAL_STATE = {
   data: [],

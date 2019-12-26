@@ -18,12 +18,16 @@ export const Product = props => {
       <View style={styles.content}>
         <Text style={styles.name}>{item.name}</Text>
         <View style={styles.quantity}>
-          <TouchableOpacity
-            style={[styles.button, styles.minus]}
-            onPress={() => minusPress({...item})}>
-            <Icon style={styles.icon} name="minus" type="FontAwesome" />
-          </TouchableOpacity>
-          <Text style={styles.qty}>{qty}</Text>
+          {qty > 0 && (
+            <>
+              <TouchableOpacity
+                style={[styles.button, styles.minus]}
+                onPress={() => minusPress({...item})}>
+                <Icon style={styles.icon} name="minus" type="FontAwesome" />
+              </TouchableOpacity>
+              <Text style={styles.qty}>{qty}</Text>
+            </>
+          )}
           <TouchableOpacity
             style={[styles.button, styles.plus]}
             onPress={() => plusPress({...item})}>
