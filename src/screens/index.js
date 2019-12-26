@@ -1,3 +1,5 @@
+export {default as NoInternet} from './NoInternet';
+
 export {default as AuthLoading} from './Auth/AuthLoading';
 export {default as SignIn} from './Auth/SignIn';
 export {default as SignUp} from './Auth/SignUp';

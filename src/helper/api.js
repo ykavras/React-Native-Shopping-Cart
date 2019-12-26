@@ -36,7 +36,9 @@ axiosInstance.interceptors.response.use(
       '#E50808',
       error.response ? error.response : error,
     );
-    error.response.data.noToken && AuthControl.removeToken();
+    if (error.response.status === 401) {
+      AuthControl.removeToken();
+    }
     return Promise.reject(error);
   },
 );
